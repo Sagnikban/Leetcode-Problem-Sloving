@@ -24,11 +24,11 @@ public:
     vector<int>res(n);
     for (int i = n - 1; i >= 0; i--) {
        
-        
+        if (!s.empty()) {
             while (!s.empty() && s.top() <= a[i]) {
                 s.pop();
             }
-        
+        }
         res[i] = s.empty() ? 0 : s.top();
         s.push(a[i]);
     }
