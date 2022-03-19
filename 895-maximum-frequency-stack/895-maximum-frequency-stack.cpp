@@ -2,21 +2,26 @@ class FreqStack {
 public:
       // Sort based on freq, else when inserted
     // { freq, { time, element }}
+    
     priority_queue<pair<int, pair<int, int>>> pq;
     unordered_map<int,int> freq;
     int t = 0;
+    
+    
     FreqStack() {
         
     }
     
-    void push(int val) {
-             freq[val]++;
+    void push(int val) 
+    {
+        freq[val]++;
         t++;
         pq.push({ freq[val], {t, val} });
     }
     
-    int pop() {
-                auto tp = pq.top();
+    int pop() 
+    {
+        auto tp = pq.top();
         pq.pop();
         freq[tp.second.second]--;
         return tp.second.second;
