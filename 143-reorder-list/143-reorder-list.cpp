@@ -12,34 +12,53 @@ class Solution {
 public:
     void reorderList(ListNode* head) {
        
-         ListNode* slow=head,*fast=head->next;
-        //to find midpoint of list
-        while(fast and fast->next){
+        if(!head || !head->next)
+        return;    
+       
+        ListNode* slow=head;
+        ListNode* fast=head->next;
+        while(fast and fast->next)
+        {
             slow=slow->next;
             fast=fast->next->next;
         }
         
-        ListNode* second=slow->next;
-        ListNode* prev=NULL;
-        slow->next=NULL;
+       
         
-        //reverse second half
-        while(second){
-            ListNode* tmp=second->next;
-            second->next=prev;
-            prev=second;
-            second=tmp;
+        ListNode* current = slow->next;
+        slow->next=NULL;
+        ListNode *prev = NULL, *next = NULL;
+ 
+        while (current) {
+            // Store next
+            next = current->next;
+ 
+            // Reverse current node's pointer
+            current->next = prev;
+ 
+            // Move pointers one position ahead.
+            prev = current;
+            current = next;
         }
-        //merge two halfs
-        ListNode* first=head;
-        ListNode* last=prev;
-        while(last){
-            ListNode* t1=first->next;
-            ListNode* t2=last->next;
-            first->next=last;
-            last->next=t1;
-            first=t1,last=t2;
+        
+
+        ListNode* n1 =head,*n2 =prev;
+        
+      
+        while(n2)
+        {
+            
+            ListNode* t1=n1->next;
+            ListNode* t2=n2->next;
+            
+            
+            n1->next=n2;
+            n2->next=t1;
+            n1=t1;
+            n2=t2;
+            
         }
+        
 
         
     }
