@@ -1,4 +1,4 @@
-#define mod 1e9+7
+
 class Solution {
 public:
     int sumSubarrayMins(vector<int>&A) {
@@ -33,13 +33,13 @@ public:
             
             s2.push(i);
         }
-        
+        long long mod=1e9+7;
         long long ans=0;
         
         for(long long i=0;i<A.size();i++)
         {
-            ans+=(A[i]*(pre_smaller[i]+1)*(next_smaller[i]+1));
-            ans%=(long long)mod;
+            ans=(ans%mod +(A[i]%mod*(pre_smaller[i]+1)%mod*(next_smaller[i]+1)%mod))%mod;
+           
         }
         
         return ans;
