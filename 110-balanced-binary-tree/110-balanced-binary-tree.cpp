@@ -11,22 +11,21 @@
  */
 class Solution {
 public:
+    bool flag=true;
+    
     int dfsheight(TreeNode* root)
     {
         if(root==NULL)
         return 0;
         
-        int lh=dfsheight(root->left);
-        if(lh==-1)
-        return -1;    
+        int lh=dfsheight(root->left);   
         int rh=dfsheight(root->right);
-        if(rh==-1)
-        return -1;    
+       
         
         if(abs(lh-rh)>1)
-        return -1;
+        flag=false;
         
-        else
+        
         return 1+max(lh,rh);    
         
     }
@@ -34,7 +33,8 @@ public:
         if(root==NULL)
         return true;
         
-        return dfsheight(root)!=-1;
+         dfsheight(root);
+            return flag;
         
     }
     
