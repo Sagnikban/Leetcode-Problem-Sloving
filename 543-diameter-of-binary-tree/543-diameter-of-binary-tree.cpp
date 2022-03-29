@@ -17,8 +17,14 @@ public:
         if(root==NULL)
         return 0;
         
+        //left subtree call
         int lh =helper(root->left);
+        
+        //right subtree call
         int rh=helper(root->right);
+        
+        //for each node we are checking the sum of the 
+        //heights of left subtree and right subtree
         
         maxi=max(maxi,lh+rh);
         
