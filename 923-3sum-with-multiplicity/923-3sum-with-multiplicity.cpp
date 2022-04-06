@@ -13,9 +13,9 @@ public:
                 if (!c.count(k))
                 continue;
                 if (i == j && j == k)
-                res += c[i] * (c[i] - 1) * (c[i] - 2) / 6;
+                res = res+ c[i] * (c[i] - 1) * (c[i] - 2) / 6;
                 else if (i == j && j != k)
-                res += c[i] * (c[i] - 1) / 2 * c[k];
+                res = res+ c[i] * (c[i] - 1) / 2 * c[k];
                 else if (i < j && j < k)
                 res = res+ c[i] * c[j] * c[k];
             }
