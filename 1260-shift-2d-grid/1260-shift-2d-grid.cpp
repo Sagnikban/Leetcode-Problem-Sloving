@@ -6,7 +6,7 @@ public:
      int n=a[0].size();
         
         int temp=a[0][0],temp1;
-        
+        k = k%(m*n);
     for(int i=1;i<=k;i++)
     {
      for(int i=0;i<m;i++)
