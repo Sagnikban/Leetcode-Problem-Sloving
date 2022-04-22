@@ -7,8 +7,10 @@ public:
     
     void put(int key, int value) {
         if(m.find(key)!=m.end())
-        m[key]=value;
-        else
+        {
+            m[key]=value;    
+            return;
+        }
         m.insert({key,value});
     }
     
@@ -20,12 +22,8 @@ public:
     }
     
     void remove(int key) {
-        
         if(m.find(key)!=m.end())
-        {
-         auto it =m.find(key);
-    
-        m.erase(it);}
+        m.erase(key);
     }
 };
 
