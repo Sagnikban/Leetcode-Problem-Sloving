@@ -32,9 +32,10 @@ public:
                      left++;
                      right--;
                      
+                     //handling duplicates of 3rd number
                      while(left<right && nums[left]==ans[2])
                      left++;
-                     
+                     //handling duplicates of 4th number
                      while(left<right && nums[right]==ans[3])
                      right--;    
                     }
@@ -49,14 +50,14 @@ public:
                      }
                }
                 
-                
-                while(j+1<n && nums[j]==nums[j+1])
-                ++j;
+                //handling duplicates of 2nd number
+                while(j<n-1 && nums[j]==nums[j+1])
+                j++;
                 
             }
-            
-            while(i+1<n && nums[i]==nums[i+1])
-             ++i;   
+               //handling duplicates of 1st number
+               while(i<n-1 && nums[i]==nums[i+1])
+               i++;   
         }
         
         
