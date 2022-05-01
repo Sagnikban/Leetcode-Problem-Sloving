@@ -42,10 +42,8 @@ public:
                 q.push(temp->right);    
             }
             
-            if(flag==1)
-            flag=0;
-            else
-            flag=1;
+            
+            flag=!flag;
             
             v.push_back(row);
           
