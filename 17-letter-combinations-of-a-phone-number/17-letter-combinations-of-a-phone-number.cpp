@@ -1,9 +1,9 @@
 class Solution {
 public:
-    vector<string>ans;
-    void recurse(map<char,vector<char>>m,string& digits,int ind,string st)
+   
+    void recurse(map<char,vector<char>>m,string& digits,int ind,string st,int n,vector<string>& ans)
     {
-        if(ind==digits.length())
+        if(ind==n)
         {
          ans.push_back(st);
          return;
@@ -11,11 +11,13 @@ public:
         
         for(auto it:m[digits[ind]])
         {
-            recurse(m,digits,ind+1,st+it);
+            recurse(m,digits,ind+1,st+it,n,ans);
         }    
             
     }
     vector<string> letterCombinations(string digits) {
+       
+        vector<string>ans;
         if(digits.size()==0)
         return ans;    
         map<char,vector<char>>m;
@@ -31,7 +33,9 @@ public:
         m['9']={'w','x','y','z'};
         
         string st="";
-        recurse(m,digits,0,st);       
+
+        int n=digits.size();
+        recurse(m,digits,0,st,n,ans);       
                               
          return ans;
                
