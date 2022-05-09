@@ -10,9 +10,8 @@ public:
         }     
         
         for(auto it:m[digits[ind]])
-        {
-            recurse(m,digits,ind+1,st+it,n,ans);
-        }    
+        recurse(m,digits,ind+1,st+it,n,ans);
+
             
     }
     vector<string> letterCombinations(string digits) {
