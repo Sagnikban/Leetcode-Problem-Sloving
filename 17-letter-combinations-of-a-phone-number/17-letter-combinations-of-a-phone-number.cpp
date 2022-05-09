@@ -7,11 +7,9 @@ public:
         {
          ans.push_back(st);
          return;
-        }
+        }     
         
-        vector<char>c=m[digits[ind]];
-        
-        for(auto it:c)
+        for(auto it:m[digits[ind]])
         {
             recurse(m,digits,ind+1,st+it);
         }    
