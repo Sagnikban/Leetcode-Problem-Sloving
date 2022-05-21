@@ -7,7 +7,7 @@ public:
         
        if(i==n-1)
        {
-           return triangle[i][j];
+           return dp[n-1][j]=triangle[i][j];
        }
         
    
