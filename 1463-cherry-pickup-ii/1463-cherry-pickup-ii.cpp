@@ -48,6 +48,8 @@ public:
                 }
             }
         }  
-        return recurse(0,0,m-1,grid,dp,n,m);
+         recurse(0,0,m-1,grid,dp,n,m);
+        
+        return dp[0][0][m-1];
     }
 };
