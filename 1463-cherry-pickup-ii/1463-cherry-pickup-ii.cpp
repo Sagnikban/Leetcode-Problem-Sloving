@@ -2,8 +2,6 @@ class Solution {
 public:
     int recurse(int i,int j1,int j2,vector<vector<int>>& grid,int dp[200][200][200],int n,int m)
     {
-  
-        
         if(j1<0 ||j1>=m|| j2<0|| j2>=m)
         return -300;
         
@@ -19,7 +17,7 @@ public:
         }    
         int maxi=INT_MIN;
         
-        
+   //Checking all nine possibilities and taking the maximum value   
    for(int dj1=-1;dj1<=1;dj1++)
     {
       for(int dj2=-1;dj2<=1;dj2++)
