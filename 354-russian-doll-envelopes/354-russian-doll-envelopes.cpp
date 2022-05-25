@@ -16,15 +16,12 @@ public:
     sort(envelopes.begin(),envelopes.end(),cmp);
     for(int i=0;i<n;++i)
     { 
-       int it =lower_bound(dp.begin(),dp.end(),envelopes[i][1])-dp.begin();
+          auto it =lower_bound(dp.begin(),dp.end(),envelopes[i][1])-dp.begin();
            if(it>=dp.size())
-           {
-               dp.push_back(envelopes[i][1]);
-           }
-        else
-        {
-            dp[it]=envelopes[i][1];
-        }
+           dp.push_back(envelopes[i][1]);
+           else
+           dp[it]=envelopes[i][1];
+        
     }
     return dp.size();
     }
