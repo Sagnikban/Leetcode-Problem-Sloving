@@ -14,9 +14,9 @@ public:
     vector<int>dp;
  
     sort(envelopes.begin(),envelopes.end(),cmp);
-    for(int i=0;i<n;++i)
+    for(int i=0;i<n;i++)
     { 
-          auto it =lower_bound(dp.begin(),dp.end(),envelopes[i][1])-dp.begin();
+            auto it =lower_bound(dp.begin(),dp.end(),envelopes[i][1])-dp.begin();
            if(it>=dp.size())
            dp.push_back(envelopes[i][1]);
            else
