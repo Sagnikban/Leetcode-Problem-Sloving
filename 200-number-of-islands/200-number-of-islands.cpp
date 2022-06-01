@@ -1,13 +1,6 @@
 class Solution {
 public:
-    bool isvalid(int i,int j,int n,int m,vector<vector<char>>& grid)
-    {
-        if(i>=0 && i<n && j>=0 && j<m && grid[i][j]=='1')
-        return true;
-        
-        return false;
-    }
-    
+
    void dfs(int i,int j,int n,int m,vector<vector<char>>& grid)
     {
        grid[i][j]='0';
