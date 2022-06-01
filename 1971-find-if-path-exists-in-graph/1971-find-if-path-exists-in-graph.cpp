@@ -4,13 +4,12 @@ public:
         
         vector<int>adj[n];
         
-        for(auto it:edges)
+        for(int i=0;i<edges.size();i++)
         {
-        adj[it[0]].push_back(it[1]);
-        adj[it[1]].push_back(it[0]);
+        adj[edges[i][0]].push_back(edges[i][1]);
+        adj[edges[i][1]].push_back(edges[i][0]);
         }
         
-
            vector<int>vis(n+1,0);
      
             queue<int>q;
