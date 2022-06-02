@@ -10,22 +10,19 @@ public:
             if(s[i]==' ')
             {
                 reverse(rev.begin(),rev.end());
-                ans+=rev+' ';
+                ans+=rev;
+                ans+=' ';
                 rev="";
-                
             }
             else
-            {
-                rev+=s[i];
-            }
-            
+            rev+=s[i]; 
             
         }
+        
         reverse(rev.begin(),rev.end());
-                ans+=rev;
+        ans+=rev;
         
         return ans;
-        
         
     }
 };
