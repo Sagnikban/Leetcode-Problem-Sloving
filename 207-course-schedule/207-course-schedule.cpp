@@ -5,8 +5,7 @@ public:
         visited[s]=true;
         currvisited[s]=true;
         
-        vector<int>data=adj[s];
-        for(auto it:data)
+        for(auto it:adj[s])
         {
             if(!visited[it])
             {
@@ -28,8 +27,6 @@ public:
         for(int i=0;i<prerequisites.size();i++)
         adj[prerequisites[i][0]].push_back(prerequisites[i][1]);
             
-        
-        
        vector<bool>visited(numCourses,false),currvisited(numCourses,false);
         
         for(int i=0;i<numCourses;i++)
