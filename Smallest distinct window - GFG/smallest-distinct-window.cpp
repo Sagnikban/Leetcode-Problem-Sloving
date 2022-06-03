@@ -4,70 +4,58 @@ using namespace std;
 
 
  // } Driver Code Ends
+
 class Solution{
     public:
     int findSubString(string str)
     {
-        
-    int n = str.length();
- 
-    // if string is empty or having one char
-   
- 
-    // Count all distinct characters.
-    int dist_count = 0;
-    bool visited[256] = { false };
-    for (int i = 0; i < n; i++) {
-        if (visited[str[i]] == false) {
-            visited[str[i]] = true;
-            dist_count++;
-        }
-    }
- 
-    // Now follow the algorithm discussed in below
-    // post. We basically maintain a window of characters
-    // that contains all characters of given string.
-    int start = 0, start_index = -1, min_len = INT_MAX;
- 
-    int count = 0;
-    int curr_count[256] = { 0 };
-    for (int j = 0; j < n; j++) {
-        // Count occurrence of characters of string
-        curr_count[str[j]]++;
- 
-        // If any distinct character matched,
-        // then increment count
-        if (curr_count[str[j]] == 1)
-            count++;
- 
-        // if all the characters are matched
-        if (count == dist_count) {
-            // Try to minimize the window i.e., check if
-            // any character is occurring more no. of times
-            // than its occurrence in pattern, if yes
-            // then remove it from starting and also remove
-            // the useless characters.
-            while (curr_count[str[start]] > 1) 
-            {
-                curr_count[str[start]]--;
-                start++;
-            }
- 
-            // Update window size
-            int len_window = j - start + 1;
-            if (min_len > len_window) {
-                min_len = len_window;
-                start_index = start;
-            }
-        }
-    }
- 
-    // Return substring starting from start_index
-    // and length min_len
-    return min_len;
+        // Your code goes here 
+         unordered_set<char>s;
+         for(int i=0;i<str.size();i++)
+         s.insert(str[i]);
+         
+         
+         unordered_map<char,long long>m;
+         
+         long long min_w_len=INT_MAX;
+         long long start_i=0;
+         
+         for(long long i=0;i<str.size();i++)
+         {
+             m[str[i]]++;
+             
+             if(m.size()==s.size())
+             {
+                while(start_i<i)
+                 {
+                     if(m[str[start_i]]==1)
+                     break;
+                     
+                     m[str[start_i]]--;
+                     
+                     start_i++;
+                 }
+                 
+                 
+                 
+                if(i-start_i+1<min_w_len)
+                {
+                    min_w_len=i-start_i+1;
+                    
+                    
+                }
+                 
+                 
+             }
+             
+             
+          
+             
+         }
+  
+         return min_w_len;
     }
 };
-
 // { Driver Code Starts.
 // Driver code
 int main() {
