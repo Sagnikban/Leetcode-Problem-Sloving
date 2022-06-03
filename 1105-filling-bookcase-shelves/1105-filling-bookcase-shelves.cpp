@@ -5,7 +5,7 @@ public:
     {
         if(width>max_width)
         {
-            return 1e8;
+            return 1000000;
         }
         if(index>=nums.size())
         {
