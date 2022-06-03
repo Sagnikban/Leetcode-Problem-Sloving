@@ -2,8 +2,7 @@ class NumArray {
 public:
     vector<int>dp;
     NumArray(vector<int>& nums) {
-        for(int i=0;i<nums.size();i++)
-        dp.push_back(nums[i]);
+        dp=nums;
         
         for(int i=1;i<nums.size();i++)
         dp[i]=dp[i-1]+nums[i];    
@@ -15,7 +14,7 @@ public:
         
         int sum_left=0;
         if(left!=0)
-         sum_left=dp[left-1];
+        sum_left=dp[left-1];
  
         int sum_right=dp[right];
         
