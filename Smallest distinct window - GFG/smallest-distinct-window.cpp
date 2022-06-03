@@ -47,9 +47,9 @@ class Solution{
             // than its occurrence in pattern, if yes
             // then remove it from starting and also remove
             // the useless characters.
-            while (curr_count[str[start]] > 1) {
-                if (curr_count[str[start]] > 1)
-                    curr_count[str[start]]--;
+            while (curr_count[str[start]] > 1) 
+            {
+                curr_count[str[start]]--;
                 start++;
             }
  
