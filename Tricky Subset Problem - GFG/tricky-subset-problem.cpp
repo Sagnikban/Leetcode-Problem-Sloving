@@ -12,24 +12,19 @@ public:
     int isPossible(long long S, long long N, long long X, long long A[])
     {
         // code here
-        long long s = S;
-        int idx = N;
-        for(int i=0;i<N; i++){
-            A[i] += s;
-            s += A[i];
-            if(s>X){
-                idx = i;
-                break;
-            }
+  vector<long long>pre;
+        pre.push_back(S);
+        long long sum = S;
+        for(int i = 1 ; i <= N && sum <= X; i++){
+            pre.push_back(sum + A[i - 1]);
+            sum += pre[i];
         }
-        while(X >= 0 and idx >=0){
-            if(X >= A[idx])
-                X -= A[idx];
-            if(X == 0 || X-S == 0)
-                return 1;
-            idx--;
+        int len = pre.size();
+        for(int i = len - 1 ; i >= 0 ;i--){
+            if(pre[i] <= X)
+            X -= pre[i];
         }
-        return 0;
+        return X == 0;
     }
 };
 
