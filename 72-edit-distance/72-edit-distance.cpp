@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //Recursion and Memorisation
     int recurse(int i,int j,string word1,string word2, vector<vector<int>>&dp)
     {
         if(i<0)
@@ -18,6 +19,8 @@ public:
         return dp[i][j]=recurse(i-1,j-1,word1,word2,dp);
         
     }
+    
+    //Tabulation Approach
     int minDistance(string word1, string word2) {
       
         int m=word1.size();
