@@ -19,7 +19,7 @@ public:
     }
     int numDistinct(string s, string t) {
         
-         vector<vector<double>>dp(s.size()+1,vector<double>(t.size()+1,0));
+         vector<vector<double>>dp(s.size()+1,vector<double>(t.size()+1,-1));
         
          for(int i=0;i<=s.size();i++)
          dp[i][0]=1;
