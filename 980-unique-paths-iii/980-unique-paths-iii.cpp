@@ -33,16 +33,7 @@ public:
     int uniquePathsIII(vector<vector<int>>& grid) {
         long long m=grid.size();
         long long n=grid[0].size();
-        vector<vector<long long>>dp;
-        for(long long i=0;i<m;i++)
-        {
-            vector<long long>v;
-            for(long long j=0;j<n;j++)
-             v.push_back(-1); 
-            
-            dp.push_back(v);
-        }
-        
+     
         int dest_i,dest_j,start_i,start_j;
         int z=0;
         for(int i=0;i<m;i++)
