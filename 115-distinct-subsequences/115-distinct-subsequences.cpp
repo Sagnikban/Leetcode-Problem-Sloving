@@ -24,6 +24,9 @@ public:
          for(int i=0;i<=s.size();i++)
          dp[i][0]=1;
         
+         for(int i=1;i<=t.size();i++)
+         dp[0][i]=0;
+        
 
         
         
@@ -39,14 +42,7 @@ public:
           }
          
          }
-        /*
-        for(int i=0;i<=s.size();i++)
-        {
-            for(int j=0;j<=t.size();j++)
-                cout<<dp[i][j]<<" ";
-            cout<<endl;
-        }
-        */
+
         return (int)dp[s.size()][t.size()];
     }
 };
