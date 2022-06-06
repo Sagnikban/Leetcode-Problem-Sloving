@@ -11,9 +11,11 @@ public:
     {
         
         if(isvalid(i,j,n,m)&& grid[i][j]==1)
-        {grid[i][j]=0;
+        {
+          grid[i][j]=0;
         
-        return 1+dfs(i+1,j,n,m,grid)+ dfs(i,j+1,n,m,grid)+dfs(i,j-1,n,m,grid)+dfs(i-1,j,n,m,grid);
+          return 1+dfs(i+1,j,n,m,grid)+ dfs(i,j+1,n,m,grid)+
+                 dfs(i,j-1,n,m,grid)+dfs(i-1,j,n,m,grid);
         }
        
        return 0;
