@@ -1,6 +1,5 @@
 class Solution {
 public:
-    int n,m;
      bool isvalid(int i,int j,int n,int m)
     {
         if(i>=0 && i<n && j>=0 && j<m )
@@ -10,8 +9,8 @@ public:
     }
     int dfs(int i,int j,vector<vector<int>>& grid)
     {
-      if (!(isvalid(i,j,grid.size(),grid[0].size())) || grid[i][j] == 0)
-      return 0;
+       if(!(isvalid(i,j,grid.size(),grid[0].size())) || grid[i][j] == 0)
+       return 0;
         
         if(grid[i][j]==1)
         {
@@ -24,8 +23,7 @@ public:
     }
     int maxAreaOfIsland(vector<vector<int>>& grid) {
         
-        n=grid.size();
-        m=grid[0].size();
+      
         int ans=0;
          for(int i=0;i<grid.size();i++)
          {
