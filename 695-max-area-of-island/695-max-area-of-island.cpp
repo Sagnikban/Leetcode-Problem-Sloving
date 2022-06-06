@@ -10,7 +10,7 @@ public:
     }
     int dfs(int i,int j,vector<vector<int>>& grid)
     {
-      if (i < 0 || i>= grid.size() || j < 0 || j >= grid[0].size() || grid[i][j] == 0)
+      if (!(isvalid(i,j,grid.size(),grid[0].size())) || grid[i][j] == 0)
       return 0;
         
         if(grid[i][j]==1)
