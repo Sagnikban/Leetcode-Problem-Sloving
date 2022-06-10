@@ -5,7 +5,7 @@ class Solution {
         queue<pair<int,int>>q;
         int m=mat.size();
         int n=mat[0].size();
-        vector<vector<int>> dist(mat.size(), vector<int> (mat[0].size(), INT_MAX));
+        vector<vector<int>> dist(m, vector<int> (n, INT_MAX));
         
         for(int i=0;i<m;i++)
         {
