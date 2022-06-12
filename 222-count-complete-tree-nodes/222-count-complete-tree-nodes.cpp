@@ -28,7 +28,7 @@ public:
     int findheightleft(TreeNode* root)
     {
         int c=0;
-        while(root)
+        while(root!=NULL)
         {
             c++;
             root=root->left;
@@ -40,7 +40,7 @@ public:
       int findheightright(TreeNode* root)
     {
         int c=0;
-        while(root)
+        while(root!=NULL)
         {
             c++;
             root=root->right;
