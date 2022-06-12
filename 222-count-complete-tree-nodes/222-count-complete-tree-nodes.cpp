@@ -11,16 +11,16 @@
  */
 class Solution {
 public:
+    
     int countNodes(TreeNode* root) {
         if(root==NULL)
         return 0;
         
-        int lh=findheightleft(root);
         int rh=findheightright(root);
+        int lh=findheightleft(root);
         
         if(lh==rh)
         return pow(2,lh)-1;
-        
         
         return 1+countNodes(root->left)+countNodes(root->right);
     }
