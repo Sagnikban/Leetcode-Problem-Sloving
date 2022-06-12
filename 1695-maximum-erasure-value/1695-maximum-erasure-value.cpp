@@ -6,7 +6,9 @@ public:
         int j=0;
         int sum=0;
         int ans=0;
-        while(i<nums.size() && j<nums.size()){
+        while(i<nums.size() && j<nums.size())
+        {
+            
             if(s.find(nums[j])==s.end()){
                 sum+=nums[j];
                 ans = max(ans,sum);
