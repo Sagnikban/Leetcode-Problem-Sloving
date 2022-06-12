@@ -19,7 +19,7 @@ public:
         while(!q.empty()) {
            TreeNode* curNode = q.front();
            q.pop();
-           if(curNode==NULL) s.append("#,");
+           if(curNode==NULL) s.append("?,");
            else s.append(to_string(curNode->val)+',');
            if(curNode != NULL){
                q.push(curNode->left);
@@ -44,7 +44,7 @@ public:
             q.pop(); 
             
             getline(s, str, ',');
-            if(str == "#") {
+            if(str == "?") {
                 node->left = NULL; 
             }
             else {
@@ -54,7 +54,7 @@ public:
             }
             
             getline(s, str, ',');
-            if(str == "#") {
+            if(str == "?") {
                 node->right = NULL; 
             }
             else {
