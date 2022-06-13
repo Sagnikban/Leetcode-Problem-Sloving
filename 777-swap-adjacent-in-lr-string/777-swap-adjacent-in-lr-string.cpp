@@ -8,7 +8,7 @@ public:
 			if (t[i] != 'X')v2.push_back({t[i], i});
 		}
 		if (v1.size() != v2.size()) return false;
-		else {
+		
 			for (int i = 0; i < v1.size(); ++i) {
 				if (v1[i].first == 'L' && v2[i].first == 'L') {
 					if (v1[i].second < v2[i].second) return false;
@@ -17,7 +17,7 @@ public:
 					if (v1[i].second > v2[i].second) return false;
 				}
 				else return false;
-			}
+			
 		}
 		return true;
 	}
