@@ -9,8 +9,7 @@ public:
        {
            return dp[n-1][j]=triangle[i][j];
        }
-        
-   
+
         
         int down=triangle[i][j]+recurse(triangle,dp,i+1,j,n);
         int down_diag=triangle[i][j]+recurse(triangle,dp,i+1,j+1,n);
