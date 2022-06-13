@@ -6,8 +6,8 @@ public:
         int wsum=0,sum=0;
         int ans=INT_MIN;
         
-        
-        while(end<nums.size())
+        int n=nums.size();
+        while(end<n)
         {
             wsum+=nums[end];
             
