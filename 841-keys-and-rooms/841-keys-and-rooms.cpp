@@ -1,23 +1,20 @@
 class Solution {
 public:
-    void dfs(vector<vector<int>>adj,int source,vector<bool>&visited)
+    void dfs(vector<vector<int>>rooms,int source,vector<bool>&visited)
     {
         visited[source]=true;
         
-        for(auto it:adj[source])
+        for(auto it:rooms[source])
         {
             if(!visited[it])
-            dfs(adj,it,visited);
+            dfs(rooms,it,visited);
         }
     }
     bool canVisitAllRooms(vector<vector<int>>& rooms) {
         
         int n=rooms.size();
-     
-        
+
         vector<bool>visited(n,false);
-        
- 
         dfs(rooms,0,visited);
        
         
