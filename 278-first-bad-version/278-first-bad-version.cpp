@@ -6,13 +6,13 @@ public:
     int firstBadVersion(int n) {
         int l=1;
         int h=n;
-        int ans;
+        int ans=INT_MAX;
         while(l<=h)
         {
             int mid=l+(h-l)/2;
             if(isBadVersion(mid)==true)
             {
-                ans=mid;
+                ans=min(ans,mid);
                 h=mid-1;
             } 
             else
