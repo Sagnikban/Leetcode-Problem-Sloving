@@ -12,10 +12,9 @@ public:
         
         for(int i=0;i<n;i++) 
         {
-            int tar = target - nums[i];
-            if(m[tar] && m[tar] != i) {
+            if(m[target - nums[i]] && m[target - nums[i]] != i) {
                 ans.push_back(i);
-                ans.push_back(m[tar]);
+                ans.push_back(m[target - nums[i]]);
                 break;
             }
         }
