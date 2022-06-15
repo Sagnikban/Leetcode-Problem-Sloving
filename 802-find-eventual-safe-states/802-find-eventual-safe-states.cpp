@@ -5,8 +5,6 @@ public:
         visited[s]=true;
         dfsvisited[s]=true;
         
-        
-        
         for(auto x: graph[s]){
             if(!visited[x]){
                 if(DfsRec(x, visited, dfsvisited, graph, present_cycle)){
@@ -38,7 +36,7 @@ public:
         
         for(int i=0;i<n;i++)
         {
-            if(present_cycle[i]==false)
+            if(!present_cycle[i])
             ans.push_back(i);    
         }
         return ans;
