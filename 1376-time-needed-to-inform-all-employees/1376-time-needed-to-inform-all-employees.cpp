@@ -19,7 +19,7 @@ public:
             int j = q.front().second;
             q.pop();
             tt = max (tt,j);
-            vector<int> sub = adj[i];
+           
             for(auto it:adj[i]) {
                 q.push({it,j+informTime[i]});
             }
