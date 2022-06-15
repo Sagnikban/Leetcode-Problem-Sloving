@@ -7,9 +7,9 @@ public:
         for(int i=0;i<arr1.size();i++){
             int s = 0;
             int e = arr2.size()-1;
-            int mid;
+         
             while(s<=e){
-                mid = s + (e-s)/2;
+                int mid = s + (e-s)/2;
                 int ans = arr2[mid]-arr1[i];
                 if(-d<=ans && ans<=d) {
                     break;
