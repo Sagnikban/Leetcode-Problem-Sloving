@@ -15,12 +15,13 @@ public:
         int tt= 0 ;
         while(!q.empty())
         {
-            int i = q.front().first, j = q.front().second;
+            int i = q.front().first;
+            int j = q.front().second;
             q.pop();
             tt = max (tt,j);
             vector<int> sub = adj[i];
-            for(int s :sub) {
-                q.push({s,j+informTime[i]});
+            for(auto it:adj[i]) {
+                q.push({it,j+informTime[i]});
             }
         }
         return tt;
