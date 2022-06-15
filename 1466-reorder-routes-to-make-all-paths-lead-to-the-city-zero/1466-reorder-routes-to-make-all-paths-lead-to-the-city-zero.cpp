@@ -3,8 +3,9 @@ public:
     void dfs(int node,vector<pair<int,bool>> adj[],vector<bool> &vis,int &count){
         vis[node] = true;
         for(auto i:adj[node]){
+            
             if(!vis[i.first]){
-                if(i.second){
+                if(i.second==true){
                     count++;
                 }
                 dfs(i.first,adj,vis,count);
