@@ -45,7 +45,7 @@ public:
         
 
         vector<int>res;
-        if(ans1==INT_MIN)
+        if(ans1==INT_MIN || ans==INT_MAX)
         {
             res.push_back(-1);
             res.push_back(-1);
