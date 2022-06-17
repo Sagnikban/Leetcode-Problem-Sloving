@@ -4,7 +4,7 @@ public:
 		unordered_set<string> dead(deadends.begin(), deadends.end());
 
 		queue<pair<string, int>> q;
-		unordered_set<string> visited;
+		set<string> visited;
 
 		if(dead.find("0000") == dead.end())
 		{
