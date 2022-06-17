@@ -35,7 +35,7 @@ public:
             d++;
             if(d+1==x)
             {
-              cout<<temp->val;
+             
               ListNode* y=temp->next;
             temp->next=temp->next->next;
                 delete y;
