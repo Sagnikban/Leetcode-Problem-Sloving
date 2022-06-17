@@ -43,7 +43,7 @@ public:
             }
         }
         
-        cout<<ans<<" "<<ans1<<endl;
+
         vector<int>res;
         if(ans1==INT_MIN)
         {
