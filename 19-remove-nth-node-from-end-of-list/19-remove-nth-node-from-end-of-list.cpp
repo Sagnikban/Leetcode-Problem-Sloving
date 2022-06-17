@@ -29,7 +29,7 @@ public:
         {
          ListNode * d=head;
          head=head->next;
-        delete d;
+         delete d;
           return head; 
         }
       
