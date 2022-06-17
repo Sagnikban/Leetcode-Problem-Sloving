@@ -26,7 +26,12 @@ public:
         int x=c-n+1;
         
         if(x==1)
-        return head->next;    
+        {
+         ListNode * d=head;
+         head=head->next;
+        delete d;
+          return head; 
+        }
       
         int d=0;
         temp=head;
@@ -37,7 +42,7 @@ public:
             {
              
               ListNode* y=temp->next;
-            temp->next=temp->next->next;
+              temp->next=temp->next->next;
                 delete y;
             }
             temp=temp->next;
