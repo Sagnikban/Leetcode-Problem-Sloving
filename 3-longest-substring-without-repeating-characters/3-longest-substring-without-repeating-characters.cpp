@@ -7,7 +7,7 @@ public:
         while(j<s.length())
         {
  
-            if(m.find(s[j])!=m.end() && i<=m[s[j]])
+            if(m.find(s[j])!=m.end() && m[s[j]]>=i)
             i=m[s[j]]+1;   
                 
             
