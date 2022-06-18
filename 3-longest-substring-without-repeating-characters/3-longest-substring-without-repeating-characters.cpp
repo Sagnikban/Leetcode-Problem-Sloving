@@ -1,31 +1,28 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        int i=0,j=0,wl=0;
-        int mwl=0,sw=-1;
-        unordered_map<char,int>m;//map stores the last occurence index of every character
-        
+       unordered_map<char,int>m;
+        int i=0,j=0;
+        int window_length=0,max_window_length=0;
         while(j<s.length())
         {
-            char ch =s[j];
+ 
+            if(m.find(s[j])!=m.end() && i<=m[s[j]])
+            i=m[s[j]]+1;   
+                
             
-            if(m.find(ch)!=m.end() and m[ch]>=i)
-            {
-                i=m[ch]+1;
-                wl=j-i;
-            }
+            m[s[j]]=j;
+           
+            window_length=j-i+1;
             
-            m[ch]=j;
-            wl++;
+            if(window_length>max_window_length)
+            max_window_length=window_length;    
+            
             j++;
             
-            if(wl>mwl)
-            {
-                mwl=wl;
-                sw=i;
-            }
+            cout<<window_length<<endl;
+            
         }
-        
-        return mwl;
+        return max_window_length;
     }
 };
