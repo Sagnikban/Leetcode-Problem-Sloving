@@ -1,6 +1,6 @@
 class WordFilter {
-    unordered_map<string,unordered_map<string,int>>m;
-    unordered_map<string,int>ms;
+    map<string,unordered_map<string,int>>m;
+    map<string,int>ms;
 public:
     WordFilter(vector<string>& words) {
        
