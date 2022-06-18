@@ -1,38 +1,24 @@
 class Solution {
 public:
-   
- int bfs(unordered_set<int>& vis,int a,int b,int x){
-        queue<pair<int,bool>> q;
-        q.push({0,true});
-        int ans = 0;
+ unordered_set<int> fob;
+    int dp[7001][2];
+    int solver(int pos, int &home, int &a, int &b, bool left)
+    {
+        if(pos == home)return 0;
+        if(pos < 0 || pos > 7000 || fob.find(pos) != fob.end())return 1e9;
+        if(dp[pos][left] != -1) return dp[pos][left];
         
-        while(!q.empty()){
-            int count = q.size();
-            for(int i=0; i<count; i++){
-                int currPoint = q.front().first;
-                bool currStatus = q.front().second;
-                q.pop();
-                
-                if(currPoint == x) return ans;
-                if(vis.count(currPoint)) continue;
-                
-                vis.insert(currPoint);
-                
-                if(currStatus && currPoint - b >= 0){
-                    q.push({currPoint - b,false});
-                }
-                if(currPoint - b <= 2000){
-                    q.push({currPoint + a,true});
-                }
-            }
-            ans++;
+        dp[pos][left] = 1 + solver(pos + a, home, a, b, false);
+        if(!left)
+        {
+            dp[pos][left] = min(dp[pos][left], 1 + solver(pos - b, home, a, b, true));
         }
-        return -1;
-}
+        return dp[pos][left];
+    }
     int minimumJumps(vector<int>& forbidden, int a, int b, int x) {
-        unordered_set<int> vis;
-        for(int &v : forbidden) vis.insert(v);
-        
-        return bfs(vis,a,b,x);
+        for(auto i: forbidden)fob.insert(i);
+        memset(dp, -1, sizeof(dp));
+        int ans = solver(0, x, a, b, false);
+        return (ans >= 1e9)? -1: ans;
     }
 };
