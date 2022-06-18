@@ -20,7 +20,7 @@ public:
             
             j++;
             
-            cout<<window_length<<endl;
+          
             
         }
         return max_window_length;
