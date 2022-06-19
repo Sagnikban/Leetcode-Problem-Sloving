@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maximalNetworkRank(int n, vector<vector<int>>& roads) {
-    vector<set<int>> network(n);
+    vector<unordered_set<int>> network(n);
 		for (auto i : roads)
 		{
 			network[i[0]].insert(i[1]);
