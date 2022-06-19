@@ -1,38 +1,60 @@
+struct node{
+    int x;
+    int y;
+    int c;
+    node(int x,int y,int c)
+    {
+        this->x=x;
+        this->y=y;
+        this->c=c;
+    }
+};
 class Solution {
 public:
+    bool check(int i,int j,int n,int m,vector<int> &e)
+    {
+        if(i==e[0]&&j==e[1])
+        {
+            return false;
+        }
+        if(i==0||j==0||i==n-1||j==m-1)
+        return true;
+        return false;
+    }
     int nearestExit(vector<vector<char>>& maze, vector<int>& entrance) {
-         queue<pair<int,int>> q;
-        q.push({entrance[0],entrance[1]});
-        maze[entrance[0]][entrance[1]]='#';
-        int steps=1;
-        
-        int dx[]={-1,1,0,0};
-        int dy[]={0,0,-1,1};
+        node n1(entrance[0],entrance[1],0);
+        int n=maze.size();
+        int m=maze[0].size();
+        vector<vector<int>> dir;
+        dir.push_back({0,1});
+        dir.push_back({0,-1});
+        dir.push_back({-1,0});
+        dir.push_back({1,0});
+        queue<node> q;
+        q.push(n1);
+        vector<vector<bool>> vis(n,vector<bool>(m,false));
         while(!q.empty())
         {
-            int l=q.size();
-            for(int i=0;i<l;i++)
+            node ele=q.front();
+            q.pop();
+            int i=ele.x;
+            int j=ele.y;
+            int c=ele.c;
+            if(check(i,j,n,m,entrance))
             {
-                auto p=q.front();
-                q.pop();
-                
-                for(int i=0;i<4;i++)
-                {
-                    int x=p.first+dx[i];
-                    int y=p.second+dy[i];
-                    
-                    if(x>=0 && x<maze.size() && y>=0 && y<maze[0].size() && maze[x][y]=='.')
-                    {
-                        if(x==0 || y==0 || x==maze.size()-1 || y==maze[0].size()-1)
-                            return steps;
-                        
-                        q.push({x,y});
-                        maze[x][y]='#';
-                    }
-                }
+                return c;
             }
-            steps++;
-        }
+            for(int a=0;a<=3;a++)
+            {
+                        int new_x=i+dir[a][0];
+                        int new_y=j+dir[a][1];
+                        if(new_x>=0&&new_x<n&&new_y>=0&&new_y<m&&maze[new_x][new_y]=='.'&&vis[new_x][new_y]==false)
+                        {
+                            vis[new_x][new_y]=true;
+                            q.push(node(new_x,new_y,c+1));
+                        }       
+            }
+            }
         return -1;
     }
 };
