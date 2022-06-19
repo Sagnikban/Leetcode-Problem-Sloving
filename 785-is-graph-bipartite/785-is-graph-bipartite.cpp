@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool isBipartite(vector<vector<int>>& graph) {
+     bool isBipartite(vector<vector<int>>& graph) {
         int color[graph.size()];
         
         memset(color,-1,sizeof color);
