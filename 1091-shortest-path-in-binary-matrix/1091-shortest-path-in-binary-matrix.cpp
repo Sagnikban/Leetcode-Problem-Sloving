@@ -32,7 +32,8 @@ public:
             
                 int i = frontNode.first, j = frontNode.second;
 
-                if(i==n-1 and j==n-1) return ans;
+                if(i==n-1 and j==n-1) 
+                return ans;
 
                 for(int k = i - 1; k <= i + 1 ; k++){
                     for(int l = j - 1; l <= j + 1; l++){
