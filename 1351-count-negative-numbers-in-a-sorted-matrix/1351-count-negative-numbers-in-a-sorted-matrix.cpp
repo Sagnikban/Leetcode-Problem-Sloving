@@ -5,9 +5,9 @@ public:
         int ans=0;
         for(int i=0;i<grid.size();i++)
         {
-           reverse(grid[i].begin(),grid[i].end()); 
-           auto it=lower_bound(grid[i].begin(),grid[i].end(),0); 
-           int x=it-grid[i].begin();
+           
+           auto it=lower_bound(grid[i].rbegin(),grid[i].rend(),0); 
+           int x=it-grid[i].rbegin();
            ans+=x; 
             
         }
