@@ -18,8 +18,12 @@ public:
         
         if(root1==NULL && root2!=NULL)
         root1->val=root2->val;
+        
         else if(root2!=NULL)
-        root1->val=root1->val+root2->val;    
+        root1->val=root1->val+root2->val; 
+        
+        else
+        return;    
         
         
         dfs(root1->left,root2->left);
