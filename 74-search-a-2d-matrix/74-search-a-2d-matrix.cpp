@@ -6,7 +6,7 @@ public:
         int j=matrix[0].size()-1;
         
         
-        while(i>=0 && i<matrix.size() && j>=0&& j<matrix[0].size())
+        while(i<matrix.size() && j>=0)
         {
   
             if(matrix[i][j]==target)
