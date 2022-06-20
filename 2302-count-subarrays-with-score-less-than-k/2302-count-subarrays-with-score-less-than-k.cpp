@@ -1,25 +1,26 @@
 class Solution {
 public:
     long long countSubarrays(vector<int>& nums, long long k) {
-         long long sum = 0, size = 0, ans = 0;
-    queue<long long> D;
-    int j = 0;
-    while (j < nums.size())
-    {
-        sum += nums[j];
-        size++;
-        D.push(nums[j]);
-        while (sum * size >= k && !D.empty())
+    long long sum = 0,n=nums.size(),x=0,y=-1,ans=0;
+        while(x<n)
+        {
+            if(y<x-1)
             {
-                sum -= D.front();
-                size--;
-                D.pop();
-            }
-            ans+=D.size();
-        // cout << sum << ' ' << size << " " << ans << endl;
-        j++;
-    }
-
+                y=x-1;
+                sum=0;
+            }  
+            while(y+1<n &&(sum+nums[y+1])*(y+1-x+1)<k)
+            {
+                y++;
+                sum+=nums[y];
+            } 
+            
+            int tmp=y-x+1;
+            ans+=tmp;
+            sum-=nums[x];
+            x++;
+        }
+        
     return ans;
     }
 };
