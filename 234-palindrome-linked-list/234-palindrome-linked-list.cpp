@@ -14,7 +14,6 @@ public:
          ListNode* fast = head;
         ListNode* slow = head;
 
-        //Code to get the mid of the linkedlist
         while (fast != NULL && fast->next != NULL) {
             fast = fast->next->next;
             slow = slow->next;
