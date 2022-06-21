@@ -1,5 +1,5 @@
 class Solution {
-    int Soldier(vector<int>& v) {
+ int Soldier(vector<int>& v) {
         int l=0; int h=v.size()-1;
         while(l<=h) {
             int mid=l+(h-l)/2;
@@ -31,5 +31,6 @@ public:
 		
         reverse(ans.begin(), ans.end());
         return ans;
+        
     }
 };
