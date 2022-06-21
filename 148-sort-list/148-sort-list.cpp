@@ -66,7 +66,8 @@ public:
     
         
     }
-    ListNode* sortList(ListNode* head) {
+    ListNode* sortList(ListNode* head) 
+    {
         
         if(head==NULL || head->next==NULL)
         return head;
