@@ -32,7 +32,7 @@ public:
                 
         }
        
-        map<string,int>p;
+        unordered_map<string,int>p;
     
         for(int i=0;i<words.size();i++)
         {
