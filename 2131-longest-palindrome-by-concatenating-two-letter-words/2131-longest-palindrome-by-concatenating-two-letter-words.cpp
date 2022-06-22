@@ -1,7 +1,7 @@
 class Solution {
 public:
     int longestPalindrome(vector<string>& words) {
-        map<string,int>same_letter;
+        unordered_map<string,int>same_letter;
         
             int ans=0;
         
@@ -31,7 +31,7 @@ public:
             }    
                 
         }
-       cout<<ans<<" ";
+       
         map<string,int>p;
     
         for(int i=0;i<words.size();i++)
