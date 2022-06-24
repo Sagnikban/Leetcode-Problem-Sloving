@@ -23,7 +23,7 @@ public:
                    s=mid+1; 
                 }
             }
-           else
+           else if(a[mid]<=a[e])
                
             {
                 if(target>=a[mid]&& target<=a[e])
