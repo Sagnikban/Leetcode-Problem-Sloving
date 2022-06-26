@@ -20,7 +20,7 @@ public:
     
       for(int i=0;i<boards.size();i++)
         {
-            set<char>s;
+            unordered_set<char>s;
             int c=0;
             for(int j=0;j<boards[0].size();j++)
             {
@@ -42,7 +42,7 @@ public:
         {
             for(int j=0;j<boards[0].size();j+=3)
             {
-             set<char>s;
+             unordered_set<char>s;
               int c=0;
                 
                 for(int k=i;k<i+3;k++)
