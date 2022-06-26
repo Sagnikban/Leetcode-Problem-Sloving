@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    vector<int>ans;
+     vector<int>ans;
     
     void postorder(TreeNode* node)
     {
