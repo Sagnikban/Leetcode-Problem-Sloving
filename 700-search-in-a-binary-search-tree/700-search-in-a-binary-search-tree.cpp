@@ -10,24 +10,31 @@
  * };
  */
 class Solution {
-    void dfs(TreeNode* root, int val, TreeNode*& ans) {
-        if(!root) return;
-    
-        if(root->val == val) {
-            ans = root;
-        } else if(root->val > val) {
-            dfs(root->left, val, ans);
-        } else if(root->val < val) {
-            dfs(root->right, val, ans);
+public:
+    TreeNode* recurse(TreeNode* root,int val)
+    {
+        if(root==NULL)
+        return NULL;     
+            
+        if(root->val==val)
+        return root;
+        
+        if(root->val<val)
+        {
+            
+            return recurse(root->right,val);
         }
         
-    }
-public:
-    TreeNode* searchBST(TreeNode* root, int val) {
-        TreeNode* ans = nullptr;
-        dfs(root, val, ans);
+       
+            return recurse(root->left,val);
         
-        return ans;
+            
+        
+    
+        
+    }
+    TreeNode* searchBST(TreeNode* root, int val) {
+        return recurse(root,val);
         
     }
 };
