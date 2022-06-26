@@ -11,15 +11,41 @@
  */
 class Solution {
 public:
-      unordered_set<int> s;
-public:
+      vector<int>v;
     bool findTarget(TreeNode* root, int k) {
-        if(!root) return false;
+       
+        inorder(root);
+        int n=v.size();
+        int i=0;
+        int j=n-1;
+        while(i<j)
+        {
+            if((v[i]+v[j])==k)
+            {
+                return true;
+            }
+            else if((v[i]+v[j])<k)
+            {
+                i++;
+            }
+            else
+            {
+                j--;
+            }
+        }
+        return false;
         
-        if(s.find(k - root -> val)!=s.end())
-      return true;
-        s.insert(root -> val);
         
-        return findTarget(root -> left, k) || findTarget(root -> right, k);
     }
+void inorder(TreeNode* root)
+{
+    if(root==NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    v.push_back(root->val);
+    inorder(root->right);
+    
+}
 };
