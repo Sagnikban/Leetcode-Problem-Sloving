@@ -11,9 +11,8 @@
  */
 class Solution {
 public:
-    TreeNode* recurse(TreeNode* root,int val)
-    {
-        if(root==NULL)
+    TreeNode* searchBST(TreeNode* root, int val) {
+       if(root==NULL)
         return NULL;     
             
         if(root->val==val)
@@ -22,19 +21,14 @@ public:
         if(root->val<val)
         {
             
-            return recurse(root->right,val);
+            return searchBST(root->right,val);
         }
         
        
-            return recurse(root->left,val);
+            return searchBST(root->left,val);
         
             
         
-    
-        
-    }
-    TreeNode* searchBST(TreeNode* root, int val) {
-        return recurse(root,val);
         
     }
 };
