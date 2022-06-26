@@ -10,8 +10,7 @@
  */
 class Solution {
 public:
-
-    ListNode* solve(ListNode* first, ListNode* second) {
+  ListNode* solve(ListNode* first, ListNode* second) {
   
     if(first->next==NULL)
     {
