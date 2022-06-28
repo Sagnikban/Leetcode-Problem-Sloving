@@ -20,7 +20,7 @@ public:
                 
                 while(st.find(f)!=st.end())
                 {
-                    cout<<c<<endl;
+                    
                     ans++;
                     f--;
                 }
