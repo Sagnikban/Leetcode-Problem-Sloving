@@ -9,6 +9,7 @@ public:
         return a;
     }
     long long int solve(int i,int c,int d,vector<int>& jobs,vector<vector<long long int>>& dp){
+        
         if(d-1==c && i==jobs.size()) return 0;
         if(i==jobs.size()) return INT_MAX;
         if(dp[i][c]!=-1) return dp[i][c];
