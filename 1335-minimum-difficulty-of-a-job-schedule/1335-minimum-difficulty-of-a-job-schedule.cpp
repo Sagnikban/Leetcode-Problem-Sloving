@@ -1,33 +1,35 @@
 class Solution {
 public:
-   int maximum(long long int a,long long int b){
-        if(a>b) return a;
-        return b;
-    }
-    int minimum(long long int a,long long int b){
-        if(a>b) return b;
-        return a;
-    }
-    long long int solve(int i,int c,int d,vector<int>& jobs,vector<vector<long long int>>& dp){
+
+    int minDifficulty(vector<int>& job, int d) {
         
-        if(d-1==c && i==jobs.size()) return 0;
-        if(i==jobs.size()) return INT_MAX;
-        if(dp[i][c]!=-1) return dp[i][c];
-        long long int max1=jobs[i],min1=INT_MAX;
-        if(d-1==c){
-            return dp[i][c]=maximum(solve(i+1,c,d,jobs,dp),jobs[i]);
+        int n=job.size();
+        if(d>n)
+        return -1;
+        
+        int dp[d][n];
+        int maxi=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            maxi=max(job[i],maxi);
+            dp[0][i]=maxi;
+        }  
+        
+        for(int i=1;i<d;i++)
+        {
+            for(int j=i;j<n;j++)
+            {
+                int mni=dp[i-1][j-1]+job[j];
+                int mxi=job[j];
+                
+                for(int k=j;k>=i;k--)
+                {
+                    mxi=max(mxi,job[k]);
+                    mni=min(mni,dp[i-1][k-1]+mxi);
+                }
+                dp[i][j]=mni;
+            }
         }
-        for(int k=i;k<jobs.size()-1;k++){
-            max1=maximum(max1,jobs[k]);
-            min1=minimum(min1,solve(k+1,c+1,d,jobs,dp)+max1);
-           // cout<<min1<<" "<<c<<"    ";
-        }
-        return dp[i][c]=min1;
-    }
-    int minDifficulty(vector<int>& jobDifficulty, int d) {
-        vector<vector<long long int>> dp(jobDifficulty.size()+1,vector<long long int>(d+1,-1));
-       long long int y=solve(0,0,d,jobDifficulty,dp);
-        if(y>=INT_MAX) return -1;
-        return y;
+        return dp[d-1][n-1];
     }
 };
