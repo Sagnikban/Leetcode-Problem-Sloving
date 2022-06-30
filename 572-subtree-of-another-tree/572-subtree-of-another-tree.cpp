@@ -20,9 +20,8 @@ bool isIdentical(TreeNode *root,TreeNode *subRoot)
         return false;
     
     if(root->val==subRoot->val)
-    {
-       return isIdentical(root->left,subRoot->left) && isIdentical(root->right,subRoot->right);
-    }
+    return isIdentical(root->left,subRoot->left) && isIdentical(root->right,subRoot->right);
+    
     return false;
 }
 bool isSubtree(TreeNode* root, TreeNode* subRoot) 
