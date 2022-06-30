@@ -11,33 +11,18 @@
  */
 class Solution {
 public:
-bool isIdentical(TreeNode *root,TreeNode *subRoot)
-{
-    if(root==NULL && subRoot==NULL)
-       return true;
-    
-    if(root==NULL || subRoot==NULL)
-        return false;
-    
-    if(root->val==subRoot->val)
-    return isIdentical(root->left,subRoot->left) && isIdentical(root->right,subRoot->right);
-    
-    return false;
-}
-bool isSubtree(TreeNode* root, TreeNode* subRoot) 
-{
-    if(subRoot==NULL)
-        return true;
-    if(root==NULL)
-        return false;
-    
-    if(root->val==subRoot->val)//now try to check their left and right's
-    {
-       if(isIdentical(root,subRoot)==true)
-           return true;
+ bool isidentical(TreeNode* root,TreeNode* subRoot){
+        if(root==NULL && subRoot==NULL) return true;
+        if(root==NULL || subRoot==NULL) return false;
+        if(root->val!=subRoot->val) return false;
+        return isidentical(root->left,subRoot->left) && isidentical(root->right,subRoot->right);
     }
-    
-    return isSubtree(root->left,subRoot)||isSubtree(root->right,subRoot);
-}
+    bool isSubtree(TreeNode* root, TreeNode* subRoot) {
+        if(root==NULL) return false;
+        if(isidentical(root,subRoot)){
+            return true;
+        }
+        return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
+    }
 };
 
