@@ -22,7 +22,7 @@ public:
             truckSize-=x;
             
             ans+=v[i].second*x;
-            cout<<x<<" "<<ans<<" "<<truckSize<<endl;
+           
         }
         return ans;
     }
