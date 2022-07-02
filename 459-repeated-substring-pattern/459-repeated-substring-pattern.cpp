@@ -19,7 +19,6 @@ public:
                 
                 if(temp==s)
                 {
-                    cout<<st<<endl;
                     return true; 
                 }
                    
