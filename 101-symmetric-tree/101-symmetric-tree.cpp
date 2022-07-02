@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    bool Symmetric(TreeNode* left,TreeNode* right)
+      bool Symmetric(TreeNode* left,TreeNode* right)
     {
         if(left==NULL || right==NULL)
         return left==right;
