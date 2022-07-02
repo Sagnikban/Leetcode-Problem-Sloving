@@ -26,13 +26,8 @@ public:
 	    for(int i=0;i<edges.size();i++)
 	    adj[edges[i][0]].push_back(edges[i][1]);
 	    
-	    for(int i=0;i<n;i++)
-	    {
-	        if(i==s)
-	        {
-	            dfs(i,adj,d,visited);
-	        }
-	    }
+	   dfs(s,adj,d,visited);
+	        
 	    return ans;
 	}
 };
