@@ -14,10 +14,10 @@ public:
         
         for(auto it:adj[s])
         {
-          if(!visited[it])    
+          //if(!visited[it])    
           dfs(it,adj,d,visited);  
         }
-        visited[s]=false;
+        //visited[s]=false;
     }
 	int possible_paths(vector<vector<int>>edges, int n, int s, int d){
 	    // Code here
