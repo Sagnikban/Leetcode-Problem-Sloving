@@ -9,9 +9,8 @@ public:
           st.push(asteroids[i]); 
           else if(st.top()>0 && asteroids[i]<0)
           {
-              cout<<asteroids[i]<<endl;
+
               int x=st.top();
-              cout<<x<<endl;
               st.pop();
               if(abs(x)==abs(asteroids[i]))
               continue;
@@ -19,16 +18,12 @@ public:
               if(abs(x)>abs(asteroids[i]))
               st.push(x);
               else if(abs(x)<abs(asteroids[i]))
-              {
-                cout<<"Aloo"<<endl;
-                st.push(asteroids[i]); 
-              }
+              st.push(asteroids[i]); 
+              
               
               if(st.size()==1)
-              {
-                  cout<<"Potol"<<endl;
-                  continue;
-              }
+              continue;
+              
                 
                   
              if(!st.empty()) 
