@@ -14,7 +14,6 @@ public:
     TreeNode* node;
     void recover(TreeNode* root,int x)
     {
-        cout<<root->val<<endl;
         if(root->right==NULL && root->left==NULL)
         return;
         
