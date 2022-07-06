@@ -16,15 +16,15 @@ public:
     {
         if(root==NULL)
         return;    
-        recurse(root->right,k);
-        v.push_back(root->val);
         recurse(root->left,k);
+        v.push_back(root->val);
+        recurse(root->right,k);
         
     }
     int kthSmallest(TreeNode* root, int k) {
         
         recurse(root,k);
-        reverse(v.begin(),v.end());
+        
         return v[k-1];
     }
 };
