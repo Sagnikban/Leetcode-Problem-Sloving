@@ -10,21 +10,21 @@
  * };
  */
 class Solution {
-public:
-    vector<int>v;
-    void recurse(TreeNode* root,int k)
-    {
-        if(root==NULL)
-        return;    
-        recurse(root->left,k);
-        v.push_back(root->val);
-        recurse(root->right,k);
-        
+    void helper(TreeNode* root, int &k,int &ans) {
+        if(!root || k == 0) return;
+        helper(root->left,k,ans);
+        if(k == 0) return;
+        k--;
+        if(k == 0) {
+            ans = root->val;
+            return;
+        }
+        helper(root->right,k,ans);
     }
+public:
     int kthSmallest(TreeNode* root, int k) {
-        
-        recurse(root,k);
-        
-        return v[k-1];
+        int ans = 0;
+        helper(root,k,ans);
+        return ans;
     }
 };
