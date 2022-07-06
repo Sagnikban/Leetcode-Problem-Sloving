@@ -1,33 +1,28 @@
 class Solution {
 public:
-    int bs(vector<vector<int>>& intervals, int target) {
-        int l = 0, r = intervals.size()-1;
-        int idx = 0;
-        while (l <= r) {
-            int m = (l + r) >> 1;
-            if (intervals[m][0] == target) return m;
-            else if (intervals[m][0] < target) l = m + 1;
-            else r = m - 1;
+
+    vector<vector<int>> insert(vector<vector<int>>& v, vector<int>& ne) 
+    {   vector<vector<int>>ans;int n=v.size();int i;
+       //Push all the intervals whose starting value is less than our new interval 
+        for(i=0;i<n;i++){
+            if(v[i][0]<ne[0])
+            ans.push_back(v[i]);
+            else
+            break;
         }
-        return l;
-    }
-    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
-        int idx = bs(intervals, newInterval[0]);
-        intervals.insert(intervals.begin()+idx, newInterval);
-        vector<vector<int> > ans;
-        ans.push_back(intervals[0]);
-        
-        for(int i=1; i<intervals.size(); i++)
-        {
-            int ax = ans[ans.size()-1][0];
-            int ay = ans[ans.size()-1][1];
-            int bx = intervals[i][0];
-            int by = intervals[i][1];
-            if(bx <= ay) {
-                ans[ans.size()-1][1] = max(ay, by);
-            } else {
-                ans.push_back(intervals[i]);
-            }
+		//check if we can merge our new interval with the previous one
+        if(!ans.empty() && ans.back()[1]>=ne[0]){
+            ans.back()[1]=max(ans.back()[1],ne[1]);
+        }
+        else{
+            ans.push_back(ne);
+        }
+        for(int j=i;j<n;j++){
+		//From now after inserting new interval there is chance of merging so keep checking
+            if(!ans.empty() && ans.back()[1]>=v[j][0])
+            ans.back()[1]=max(ans.back()[1],v[j][1]);
+            else
+            ans.push_back(v[j]);
         }
         return ans;
     }
